@@ -170,7 +170,7 @@ const HeroSection = () => {
           </p>
           <div ref={buttonsRef} className={`flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6
             ${buttonsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'} transition-all duration-1000 delay-400 ease-out`}>
-            <a href="#" className="bg-gradient-to-r from-blue-gradient-start to-blue-gradient-end text-white px-8 py-4 rounded-full text-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-xl transform hover:scale-105 animate-pulse-glow">
+            <a href="https://play.google.com/store/apps/details?id=com.globewaystechnologies.omnicam&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-gradient-start to-blue-gradient-end text-white px-8 py-4 rounded-full text-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-xl transform hover:scale-105 animate-pulse-glow">
               Get OmniCam Now
             </a>
             <a href="#" className="bg-transparent border-2 border-text-light text-text-light px-8 py-4 rounded-full text-xl font-semibold hover:bg-text-light hover:text-dark-primary transition-colors duration-300 shadow-lg transform hover:scale-105">
@@ -321,8 +321,8 @@ const LiveStreamingFeaturesSection = () => {
   return (
     <div id="streaming">
       <SectionHeader
-        title="Seamless Live Streaming"
-        subtitle="Broadcast your world with advanced features for reliable and high-quality live streams."
+        title="Seamless Recording & Live Streaming"
+        subtitle="Backgrpound Video Recording & Broadcast your world with advanced features for reliable and high-quality live streams."
       />
       <AlternatingContentSection
         index={0}
