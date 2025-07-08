@@ -6,6 +6,95 @@ import {
   PlayCircleIcon, SparklesIcon, CheckCircleIcon, Bars3Icon, XMarkIcon, RocketLaunchIcon, EyeSlashIcon, CloudArrowUpIcon
 } from '@heroicons/react/24/outline';
 
+import omnicamicon256 from './assets/omni9trans256.png'; // Adjust path as needed
+import omnicamScreenshot from './assets/Gemini9.png'; // Adjust path as needed
+import omnicamrtmp from './assets/Geminirtmp.png'; // Adjust path as needed
+import omnicamliveschedule from './assets/Geminiliveschedule.png'; // Adjust path as needed
+import omnicamgps from './assets/GeminiGps.png'; // Adjust path as needed
+import omnicamdata from './assets/Geminidata.png'; // Adjust path as needed
+import omnicamoffscreen from './assets/Geminioffscreen.png'; // Adjust path as needed
+import omnicamlock from './assets/Geminilock.png'; // Adjust path as needed
+import omnicamvolumekeys from './assets/Geminivolumekeys.png'; // Adjust path as needed
+
+// ImageGenerator Component
+const ImageGenerator = ({ prompt, imageClassName }) => {
+  const [imageUrl, setImageUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const generateImage = async () => {
+    setIsLoading(true);
+    setError('');
+    setImageUrl(''); // Clear previous image
+
+    const payload = {
+      instances: { prompt: prompt },
+      parameters: { "sampleCount": 1 }
+    };
+
+    // API key is provided by the Canvas environment at runtime
+    const apiKey = "";
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+        const generatedImageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+        setImageUrl(generatedImageUrl);
+      } else {
+        setError('Failed to generate image: No image data received.');
+      }
+    } catch (e) {
+      console.error("Error generating image:", e);
+      setError(`Failed to generate image: ${e.message}. Please try again.`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center space-y-4">
+      {isLoading ? (
+        <div className="flex items-center justify-center h-64 w-full max-w-md rounded-3xl bg-dark-secondary animate-pulse">
+          <svg className="animate-spin h-10 w-10 text-accent-cyan" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span className="ml-3 text-text-subtle">Generating UI...</span>
+        </div>
+      ) : imageUrl ? (
+        <img
+          src={imageUrl}
+          alt="Generated OmniCam UI Screenshot"
+          className={`${imageClassName} w-full max-w-md rounded-3xl shadow-2xl border-4 border-accent-cyan transform rotate-6 hover:rotate-0 transition-transform duration-700 ease-out`}
+        />
+      ) : (
+        <div className="flex flex-col items-center justify-center h-64 w-full max-w-md rounded-3xl bg-dark-secondary border-4 border-gray-700 text-text-subtle">
+          <p className="text-center mb-4">Click below to generate a sleek OmniCam UI screenshot!</p>
+          <button
+            onClick={generateImage}
+            className="bg-gradient-to-r from-blue-gradient-start to-blue-gradient-end text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg"
+          >
+            Generate UI Image
+          </button>
+        </div>
+      )}
+      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+    </div>
+  );
+};
+
 
 // Header.jsx
 const Header = () => {
@@ -15,7 +104,10 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-dark-primary bg-opacity-90 backdrop-blur-sm shadow-lg">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <img src="https://placehold.co/40x40/00F0FF/0D1117?text=OC" alt="OmniCam Logo" className="h-10 w-10 rounded-full mr-3 border border-accent-cyan animate-pulse-border" />
+          {/* <img src="https://placehold.co/40x40/00F0FF/0D1117?text=OC" alt="OmniCam Logo" className="h-10 w-10 rounded-full mr-3 border border-accent-cyan animate-pulse-border" /> */}
+        <img src={omnicamicon256} alt="OmniCam Logo" className="h-10 w-15 mr-3 " />
+
+          
           <span className="text-text-light text-2xl font-bold font-mono">OmniCam</span>
         </div>
 
@@ -24,7 +116,7 @@ const Header = () => {
           <a href="#features" className="text-text-base hover:text-accent-cyan transition-colors duration-200 text-lg">Features</a>
           <a href="#streaming" className="text-text-base hover:text-accent-cyan transition-colors duration-200 text-lg">Live Stream</a>
           <a href="#privacy" className="text-text-base hover:text-accent-cyan transition-colors duration-200 text-lg">Security</a>
-          <a href="#download" className="bg-gradient-to-r from-blue-gradient-start to-blue-gradient-end text-white px-6 py-2 rounded-full hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-xl transform hover:scale-105">Download App</a>
+          <a href="https://play.google.com/store/apps/details?id=com.globewaystechnologies.omnicam&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-gradient-start to-blue-gradient-end text-white px-6 py-2 rounded-full hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-xl transform hover:scale-105">Download App</a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -89,11 +181,20 @@ const HeroSection = () => {
         <div ref={imageRef} className={`md:w-1/2 flex justify-center md:justify-end
           ${imageInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} transition-all duration-1000 delay-500 ease-out`}>
           <img
-            src="https://placehold.co/450x800/161B22/00F0FF?text=OmniCam+App+UI"
+            // src="https://placehold.co/450x800/161B22/00F0FF?text=OmniCam+App+UI"
+            // src="/images/Gemini9.png"
+            src={omnicamScreenshot}
             alt="OmniCam App Interface"
             className="w-full max-w-md rounded-3xl shadow-2xl border-4 border-accent-cyan transform rotate-6 hover:rotate-0 transition-transform duration-700 ease-out"
           />
         </div>
+        {/* <div ref={imageRef} className={`md:w-1/2 flex justify-center md:justify-end
+          ${imageInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} transition-all duration-1000 delay-500 ease-out`}>
+          <ImageGenerator
+            prompt="A sleek, futuristic mobile app UI screenshot for 'OmniCam'. The UI should show a dual-camera view or a live streaming interface with subtle data overlays. Use a dark background with vibrant cyan, magenta, and blue accents. The design should feel modern and high-tech, suitable for a discreet recording and streaming app."
+            imageClassName="w-full max-w-md rounded-3xl shadow-2xl border-4 border-accent-cyan transform rotate-6 hover:rotate-0 transition-transform duration-700 ease-out"
+          />
+        </div> */ }
       </div>
     </section>
   );
@@ -228,7 +329,8 @@ const LiveStreamingFeaturesSection = () => {
         icon={CloudArrowUpIcon}
         title="Direct RTMP Integration"
         description="Connect directly to YouTube RTMP or any custom server. OmniCam makes live broadcasting simple and efficient, putting you in control of your stream destination."
-        imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=RTMP+Streaming"
+        // imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=RTMP+Streaming"
+        imageSrc={omnicamrtmp}
         altText="RTMP Streaming Interface"
         reverse={false}
       />
@@ -237,7 +339,8 @@ const LiveStreamingFeaturesSection = () => {
         icon={CalendarDaysIcon}
         title="Automated Stream Scheduling"
         description="Plan your live events in advance. Set custom schedules for your streams to start and stop automatically, ensuring you never miss a broadcast moment."
-        imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=Stream+Schedule"
+        // imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=Stream+Schedule"
+        imageSrc={omnicamliveschedule}
         altText="Live Stream Scheduling"
         reverse={true}
       />
@@ -246,7 +349,8 @@ const LiveStreamingFeaturesSection = () => {
         icon={MapPinIcon}
         title="Location & Time Overlays"
         description="Enhance your streams and recordings with real-time GPS location and timestamp watermarks. Provide verifiable context and authenticity to your content."
-        imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=Geo+Timestamp"
+        // imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=Geo+Timestamp"
+        imageSrc={omnicamgps}
         altText="Video with Geo Timestamp"
         reverse={false}
       />
@@ -267,7 +371,8 @@ const PrivacyAndSecuritySection = () => {
         icon={ShieldCheckIcon}
         title="Your Data Stays Local"
         description="OmniCam prioritizes your privacy. We do not collect or share personal data without explicit consent. All recordings are securely saved locally on your device, giving you complete ownership and control."
-        imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=Local+Storage"
+        // imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=Local+Storage"
+        imageSrc={omnicamdata}
         altText="Local Data Storage"
         reverse={false}
       />
@@ -276,7 +381,8 @@ const PrivacyAndSecuritySection = () => {
         icon={PhoneIcon}
         title="Discreet Background Operation"
         description="Record or stream with your screen off, or while using other applications. OmniCam operates seamlessly in the background, allowing for unobtrusive capture and broadcasting."
-        imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=Background+Mode"
+        // imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=Background+Mode"
+        imageSrc = {omnicamoffscreen}
         altText="Phone in background mode"
         reverse={true}
       />
@@ -285,7 +391,8 @@ const PrivacyAndSecuritySection = () => {
         icon={LockClosedIcon}
         title="Secure Access & Ethical Use"
         description="Protect your app and recordings with a secure pattern lock. OmniCam is designed for lawful and ethical use; we encourage compliance with local laws and respect for privacy."
-        imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=App+Lock"
+        // imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=App+Lock"
+        imageSrc={omnicamlock}
         altText="App with pattern lock"
         reverse={false}
       />
@@ -294,7 +401,8 @@ const PrivacyAndSecuritySection = () => {
         icon={SpeakerWaveIcon}
         title="Volume Key Quick Controls"
         description="For ultimate discretion, use your device's volume buttons to instantly start or stop recording, even when the screen is locked. This optional feature enhances quick and quiet operation."
-        imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=Volume+Control"
+        // imageSrc="https://placehold.co/600x400/161B22/00F0FF?text=Volume+Control"
+        imageSrc={omnicamvolumekeys}
         altText="Hand pressing volume button"
         reverse={true}
       />
@@ -323,7 +431,7 @@ const CallToAction = () => {
         </p>
         <div className={`flex justify-center space-x-4
           ${inView ? 'opacity-100 zoom-in' : 'opacity-0'} transition-all duration-700 delay-400 ease-out`}>
-          <a href="#" className="bg-gradient-to-r from-blue-gradient-start to-blue-gradient-end text-white px-8 py-4 rounded-full text-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-xl transform hover:scale-105 animate-pulse-glow">
+          <a href="https://play.google.com/store/apps/details?id=com.globewaystechnologies.omnicam&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-gradient-start to-blue-gradient-end text-white px-8 py-4 rounded-full text-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-xl transform hover:scale-105 animate-pulse-glow">
             Download on Google Play
           </a>
           {/* Add App Store link if applicable */}
