@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
