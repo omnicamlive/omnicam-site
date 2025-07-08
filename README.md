@@ -58,3 +58,26 @@ The OmniCam app is power-packed with features highlighted on the website:
 git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 cd YOUR_REPOSITORY_NAME
 npm install # or yarn install
+
+npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch
+npm start # or yarn start
+
+"homepage": "https://YOUR_USERNAME.github.io/YOUR_REPOSITORY_NAME",
+
+npm install --save-dev gh-pages # or yarn add --dev gh-pages
+
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+
+
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+
+npm run deploy # or yarn deploy
+
+In repository settings > Pages, select gh-pages branch as source and / as the root folder.
