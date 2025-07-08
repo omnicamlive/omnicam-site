@@ -30,7 +30,7 @@ const CallToAction = () => {
   });
 
   return (
-    <section id="download" ref={ref} className="py-16 md:py-24 bg-dark-primary text-text-light text-center">
+    <section id="download-content" ref={ref} className="py-16 md:py-24 bg-dark-primary text-text-light text-center">
       <div className="container mx-auto px-4">
         <h2 className={`text-3xl md:text-5xl font-bold mb-6
           ${inView ? 'opacity-100 zoom-in' : 'opacity-0'} transition-all duration-700 ease-out`}>

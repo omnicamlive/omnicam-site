@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 // Import BrowserRouter, Routes, Route for routing
 import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import omnicamicon256 from '../assets/omni9trans256.png'; // Adjust path as needed
 
 
 // Header.jsx
@@ -36,7 +37,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-dark-primary bg-opacity-90 backdrop-blur-sm shadow-lg">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <img src="https://placehold.co/40x40/00F0FF/0D1117?text=OC" alt="OmniCam Logo" className="h-10 w-10 rounded-full mr-3 border border-accent-cyan animate-pulse-border" />
+          <img src={omnicamicon256} alt="OmniCam Logo" className="h-10 w-15 mr-3" />
           <span className="text-text-light text-2xl font-bold font-mono">OmniCam</span>
         </div>
 
