@@ -1,4 +1,4 @@
-# OmniCam – Dual Camera Recorder & Live Streamer Mobile App
+# OmniCam – Dual Camera Background Recorder & Live Streamer Mobile App
 
 
 ## 📱 Project Overview
