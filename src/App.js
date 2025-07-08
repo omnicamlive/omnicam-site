@@ -331,7 +331,7 @@ const LiveStreamingFeaturesSection = () => {
         description="Connect directly to YouTube RTMP or any custom server. OmniCam makes live broadcasting simple and efficient, putting you in control of your stream destination."
         // imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=RTMP+Streaming"
         imageSrc={omnicamrtmp}
-        altText="RTMP Streaming Interface"
+        altText="Backgrpound Video Recording & RTMP Streaming Interface"
         reverse={false}
       />
       <AlternatingContentSection
@@ -341,7 +341,7 @@ const LiveStreamingFeaturesSection = () => {
         description="Plan your live events in advance. Set custom schedules for your streams to start and stop automatically, ensuring you never miss a broadcast moment."
         // imageSrc="https://placehold.co/600x400/0D1117/FF00FF?text=Stream+Schedule"
         imageSrc={omnicamliveschedule}
-        altText="Live Stream Scheduling"
+        altText="Backgrpound Video Recording & Live Stream Scheduling"
         reverse={true}
       />
       <AlternatingContentSection
