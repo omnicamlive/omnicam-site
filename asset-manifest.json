@@ -1,13 +1,21 @@
 {
   "files": {
-    "main.css": "/omnicam-site/static/css/main.aa367f3a.css",
-    "main.js": "/omnicam-site/static/js/main.522f27b2.js",
+    "main.css": "/omnicam-site/static/css/main.9d548f47.css",
+    "main.js": "/omnicam-site/static/js/main.3b10f217.js",
+    "static/media/GeminiGps.png": "/omnicam-site/static/media/GeminiGps.05bf0c8707e5e3a1679d.png",
+    "static/media/Geminiliveschedule.png": "/omnicam-site/static/media/Geminiliveschedule.2c517e97e1e11d61b234.png",
+    "static/media/Geminidata.png": "/omnicam-site/static/media/Geminidata.54791995e8ebb601dd5e.png",
+    "static/media/Gemini9.png": "/omnicam-site/static/media/Gemini9.745f5a8fba67d306b9ed.png",
+    "static/media/Geminilock.png": "/omnicam-site/static/media/Geminilock.9f8de24177575b6d1e18.png",
+    "static/media/Geminirtmp.png": "/omnicam-site/static/media/Geminirtmp.4afde0fe25b41aea40ad.png",
+    "static/media/Geminivolumekeys.png": "/omnicam-site/static/media/Geminivolumekeys.f805472f62335f5025d8.png",
+    "static/media/Geminioffscreen.png": "/omnicam-site/static/media/Geminioffscreen.033f89cd5750006f9869.png",
     "index.html": "/omnicam-site/index.html",
-    "main.aa367f3a.css.map": "/omnicam-site/static/css/main.aa367f3a.css.map",
-    "main.522f27b2.js.map": "/omnicam-site/static/js/main.522f27b2.js.map"
+    "main.9d548f47.css.map": "/omnicam-site/static/css/main.9d548f47.css.map",
+    "main.3b10f217.js.map": "/omnicam-site/static/js/main.3b10f217.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa367f3a.css",
-    "static/js/main.522f27b2.js"
+    "static/css/main.9d548f47.css",
+    "static/js/main.3b10f217.js"
   ]
 }
