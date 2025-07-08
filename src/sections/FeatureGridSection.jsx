@@ -44,7 +44,7 @@ const FeatureGridSection = () => {
   ];
 
   return (
-    <section id="features" className="py-16 md:py-24 bg-dark-primary text-text-light">
+    <section id="features-content" className="py-16 md:py-24 bg-dark-primary text-text-light">
       <div className="container mx-auto px-4 text-center">
         <h2 ref={headingRef} className={`text-3xl md:text-5xl font-bold mb-16
           ${headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} transition-all duration-700 ease-out`}>

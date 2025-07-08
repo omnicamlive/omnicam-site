@@ -29,7 +29,7 @@ import omnicamvolumekeys from '../assets/Geminivolumekeys.png'; // Adjust path a
 
 const PrivacyAndSecuritySection = () => {
   return (
-    <div id="privacy">
+    <div id="security-content">
       <SectionHeader
         title="Privacy & Uncompromised Control"
         subtitle="OmniCam is built on a foundation of security, ensuring your data remains yours and your operations stay discreet."

@@ -26,7 +26,7 @@ const PrivacyPolicySection = () => {
   });
 
   return (
-    <section id="privacy-policy" ref={ref} className="py-16 md:py-24 bg-dark-primary text-text-light">
+    <section id="privacy-policy-content" ref={ref} className="py-16 md:py-24 bg-dark-primary text-text-light">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className={`text-3xl md:text-5xl font-bold mb-8 text-center
           ${inView ? 'opacity-100 slide-in-up' : 'opacity-0'} transition-all duration-700 ease-out`}>

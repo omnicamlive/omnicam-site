@@ -30,7 +30,7 @@ const HeroSection = () => {
   const { ref: imageRef, inView: imageInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="hero" className="relative bg-dark-primary text-text-light py-24 md:py-40 overflow-hidden min-h-screen flex items-center">
+    <section id="hero-content" className="relative bg-dark-primary text-text-light py-24 md:py-40 overflow-hidden min-h-screen flex items-center">
       {/* Dynamic background elements - more subtle, tech-inspired */}
       <div className="absolute inset-0 z-0 opacity-5">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-cyan rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-float-subtle"></div>

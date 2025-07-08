@@ -27,7 +27,7 @@ import omnicamvolumekeys from '../assets/Geminivolumekeys.png'; // Adjust path a
 // LiveStreamingFeaturesSection.jsx
 const LiveStreamingFeaturesSection = () => {
   return (
-    <div id="streaming">
+    <div id="streaming-content">
       <SectionHeader
         title="Seamless Recording & Live Streaming"
         subtitle="Backgrpound Video Recording & Broadcast your world with advanced features for reliable and high-quality live streams."
