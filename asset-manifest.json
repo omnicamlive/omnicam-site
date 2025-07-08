@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/omnicam-site/static/css/main.fa201892.css",
-    "main.js": "/omnicam-site/static/js/main.2e8a6520.js",
-    "static/js/453.d4b6e1c5.chunk.js": "/omnicam-site/static/js/453.d4b6e1c5.chunk.js",
+    "main.css": "/omnicam-site/static/css/main.17630586.css",
+    "main.js": "/omnicam-site/static/js/main.522f27b2.js",
     "index.html": "/omnicam-site/index.html",
-    "main.fa201892.css.map": "/omnicam-site/static/css/main.fa201892.css.map",
-    "main.2e8a6520.js.map": "/omnicam-site/static/js/main.2e8a6520.js.map",
-    "453.d4b6e1c5.chunk.js.map": "/omnicam-site/static/js/453.d4b6e1c5.chunk.js.map"
+    "main.17630586.css.map": "/omnicam-site/static/css/main.17630586.css.map",
+    "main.522f27b2.js.map": "/omnicam-site/static/js/main.522f27b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa201892.css",
-    "static/js/main.2e8a6520.js"
+    "static/css/main.17630586.css",
+    "static/js/main.522f27b2.js"
   ]
 }
