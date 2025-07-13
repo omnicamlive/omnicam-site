@@ -45,7 +45,7 @@ const HeroSection = () => {
           </h1>
           <p ref={textRef} className={`text-lg md:text-2xl text-text-subtle mb-10
             ${textInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'} transition-all duration-1000 delay-200 ease-out`}>
-            OmniCam: The ultimate discreet dual-camera recorder and live streaming solution.
+            OmniCam: Capture Front and Rear Video in the Background with Live RTMP Streaming, Timestamp, and Location Watermarks
           </p>
           <div ref={buttonsRef} className={`flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6
             ${buttonsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'} transition-all duration-1000 delay-400 ease-out`}>
