@@ -10,15 +10,7 @@ import {
   PlayCircleIcon, SparklesIcon, CheckCircleIcon, Bars3Icon, XMarkIcon, RocketLaunchIcon, EyeSlashIcon, CloudArrowUpIcon
 } from '@heroicons/react/24/outline';
 
-import omnicamicon256 from './assets/omni9trans256.png'; // Adjust path as needed
-import omnicamScreenshot from './assets/Gemini9.png'; // Adjust path as needed
-import omnicamrtmp from './assets/Geminirtmp.png'; // Adjust path as needed
-import omnicamliveschedule from './assets/Geminiliveschedule.png'; // Adjust path as needed
-import omnicamgps from './assets/GeminiGps.png'; // Adjust path as needed
-import omnicamdata from './assets/Geminidata.png'; // Adjust path as needed
-import omnicamoffscreen from './assets/Geminioffscreen.png'; // Adjust path as needed
-import omnicamlock from './assets/Geminilock.png'; // Adjust path as needed
-import omnicamvolumekeys from './assets/Geminivolumekeys.png'; // Adjust path as needed
+
 import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 // App.js (Main component)
